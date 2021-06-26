@@ -16,7 +16,7 @@ app.use("/rooms", roomRoutes)
 app.use("/messages", messageRoutes)
 
 app.get("/", (req, res) => {
-  res.send("Welcome to chatapp restapi")
+  res.send("Welcome to messagingapp restapi")
 })
 
 db.sequelize.sync().then(() => {

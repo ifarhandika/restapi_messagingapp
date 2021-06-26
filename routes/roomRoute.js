@@ -5,11 +5,15 @@ const router = express.Router()
 
 //GET all room conversation
 router.get("/", async (req, res) => {
-  const listOfRooms = await Rooms.findAll()
-  res.json(listOfRooms)
+  try {
+    const listOfRooms = await Rooms.findAll()
+    res.json(listOfRooms)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
 })
 
-//GET all list of conversation by roomId
+//GET list of conversation by roomId
 router.get("/:roomId", async (req, res) => {
   const roomId = req.params.roomId
   try {
