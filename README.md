@@ -17,4 +17,12 @@ http://localhost:5000/messages (POST: Send a new message)
   
 GUIDES:
 - To create a new user, {username, password} must be filled  
+- To login, {username, password} must be filled  
+
+- To send a message to another user, first you have to create a room. To create a room, {initiator, chatWith} must be filled  
+- To see the users' conversation between another user, just pass in the roomId  
+  
+- To send a message, you have to fill the {message, sender, idRoom}. {message} is the message you want to send, {sender} is the username of the user senders', and {idRoom} is the room conversation that you want to talk to, which is {chatWith}.  
+
+
 
