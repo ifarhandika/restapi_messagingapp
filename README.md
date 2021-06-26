@@ -24,5 +24,7 @@ GUIDES:
   
 - To send a message, you have to fill the {message, sender, idRoom}. {message} is the message you want to send, {sender} is the username of the user senders', and {idRoom} is the room conversation that you want to talk to, which is {chatWith}.  
 
+Notes:  
+Still a lot to improve like making it real time.
 
 
