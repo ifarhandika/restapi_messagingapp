@@ -1,7 +1,11 @@
 # restapi_messagingapp  
+//Users Routes
+  http://localhost:5000/users  
+  (GET: Fetch all users, POST: Create a new user)  
+http://localhost:5000/users/login     (POST)  
+http://localhost:5000/users/:id       (DELETE)  
 
-//GET, POST, GETBYID  
-http://localhost:5000/users  
+
 
 //GET, POST  
 http://localhost:5000/rooms  
