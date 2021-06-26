@@ -14,5 +14,7 @@ http://localhost:5000/rooms/:roomId (GET: Fetch all messages/conversation by roo
 //Messages Routes  
 http://localhost:5000/messages (POST: Send a new message)  
   
-
+  
+GUIDES:
+- To create a new user, {username, password} must be filled  
 
