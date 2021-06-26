@@ -2,6 +2,8 @@
 
 This is a REST API for a Messaging App  
   
+Tools used: NodeJs, ExpressJs, and MySQL
+  
 //Users Routes  
 http://localhost:5000/users (GET: Fetch all users, POST: Create a new user)  
 http://localhost:5000/users/login (POST: User logins)  
