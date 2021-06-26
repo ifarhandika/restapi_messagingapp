@@ -1,4 +1,7 @@
 # restapi_messagingapp  
+
+This is a REST API for a Messaging App  
+  
 //Users Routes  
 http://localhost:5000/users (GET: Fetch all users, POST: Create a new user)  
 http://localhost:5000/users/login (POST: User logins)  
@@ -11,3 +14,5 @@ http://localhost:5000/rooms/:roomId (GET: Fetch all messages/conversation by roo
 //Messages Routes  
 http://localhost:5000/messages (POST: Send a new message)  
   
+
+
