@@ -4,13 +4,22 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    chatWith: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   })
 
-  
-
-  //   Users.associate = (models) => {
-  //     Users.hasMany(models.Posts)
-  //   }
+  Rooms.associate = (models) => {
+    Rooms.belongsTo(models.Users, {
+      foreignKey: "userId",
+      as: "user",
+    }),
+      Rooms.hasMany(models.Message, {
+        foreignKey: "roomId",
+        as: "message",
+      })
+  }
 
   return Rooms
 }

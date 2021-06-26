@@ -11,9 +11,16 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Users.associate = (models) => {
-    Users.belongsToMany(models.Rooms, {
-      through: 'Messages',
-    })
+    Users.hasMany(models.Rooms, {
+      onDelete: "cascade",
+      foreignKey: "userId",
+      as: "rooms",
+    }),
+      Users.hasMany(models.Message, {
+        onDelete: "cascade",
+        foreignKey: "userId",
+        as: "message",
+      })
   }
 
   return Users

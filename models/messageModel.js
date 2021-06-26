@@ -4,12 +4,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    sender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   })
 
   Message.associate = (models) => {
-    Message.hasMany(models.Rooms, {
-      onDelete: "cascade",
-    })
+    Message.belongsTo(models.Users, {
+      foreignKey: "userId",
+      as: "user",
+    }),
+      Message.belongsTo(models.Rooms, {
+        foreignKey: "roomId",
+        as: "rooms",
+      })
   }
 
   return Message

@@ -4,6 +4,7 @@ const { Users } = require("../models")
 
 const router = express.Router()
 
+//GET All User
 router.get("/", async (req, res) => {
   try {
     const userList = await Users.findAll({})
@@ -13,6 +14,7 @@ router.get("/", async (req, res) => {
   }
 })
 
+//POST new user
 router.post("/", async (req, res) => {
   const { username, password } = req.body
   try {
@@ -28,6 +30,7 @@ router.post("/", async (req, res) => {
   }
 })
 
+//POST login user
 router.post("/login", async (req, res) => {
   const { username, password } = req.body
   try {

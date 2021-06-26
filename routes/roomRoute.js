@@ -1,23 +1,44 @@
 const express = require("express")
-const { Rooms } = require("../models")
+const { Rooms, Users, Message } = require("../models")
 
 const router = express.Router()
 
+//GET all room conversation
 router.get("/", async (req, res) => {
   const listOfRooms = await Rooms.findAll()
   res.json(listOfRooms)
 })
 
-router.get("/:id", async (req, res) => {
-  const id = req.params.id
-  const room = await Rooms.findByPk(id)
-  res.json(room)
+//GET all list of conversation by roomId
+router.get("/:roomId", async (req, res) => {
+  const roomId = req.params.roomId
+  try {
+    const room = await Message.findAll({ where: { RoomId: roomId } })
+    res.status(200).json(room)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
 })
 
+//POST a new room conversation
 router.post("/", async (req, res) => {
-  const room = req.body
-  await Rooms.create(room)
-  res.json(room)
+  const { initiator, chatWith } = req.body
+  try {
+    const userInitiator = await Users.findOne({
+      where: { username: initiator },
+    })
+    const userChatWith = await Users.findOne({
+      where: { username: chatWith },
+    })
+    const newRoom = await Rooms.create({
+      initiator: userInitiator.username,
+      chatWith: userChatWith.username,
+      userId: userInitiator.id,
+    })
+    res.json(newRoom)
+  } catch (error) {
+    res.status(409).json({ message: error.message })
+  }
 })
 
 module.exports = router
